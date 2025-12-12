@@ -3,428 +3,437 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TerraMab Ing | Ingeniería de Riesgos</title>
-  <meta name="description" content="Ingeniería de riesgos: asesoría técnica, auditoría especializada y capacitación en gestión del riesgo químico, SST e higiene industrial." />
+  <title>TerraMab Ing – Ingeniería de Riesgos</title>
+  <meta name="description" content="Asesoría técnica, auditoría especializada y capacitación en gestión del riesgo químico, SST e higiene industrial." />
 
   <style>
     :root{
-      /* Paleta inspirada en tu logo (verde técnico, sobrio) */
-      --bg: #0b1410;
-      --bg2: #0f1d16;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.09);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --line: rgba(255,255,255,.14);
-
-      --accent: #38d96e;     /* verde vivo */
-      --accent2: #1aa35a;    /* verde profundo */
-      --accent3: #0b6b3a;    /* verde oscuro */
-      --shadow: 0 18px 50px rgba(0,0,0,.40);
-
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --surface-2: #f1f4f6;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: rgba(15, 23, 42, .10);
+      --shadow: 0 18px 45px rgba(2, 6, 23, .10);
       --radius: 18px;
       --radius2: 26px;
-      --max: 1120px;
 
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      /* Verde TerraMab (aprox. al logo) */
+      --accent: #1f7a3b;
+      --accent-2: #2aa65a;
+      --accent-soft: rgba(31, 122, 59, .10);
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: var(--font);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color: var(--text);
       background:
-        radial-gradient(1200px 700px at 15% -10%, rgba(56,217,110,.16), transparent 60%),
-        radial-gradient(900px 650px at 110% 20%, rgba(26,163,90,.14), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(900px 520px at 18% -10%, rgba(31,122,59,.12), transparent 60%),
+        radial-gradient(900px 520px at 88% 10%, rgba(42,166,90,.10), transparent 60%),
+        var(--bg);
     }
 
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .pill{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:10px 14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      border-radius:999px;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .dot{
-      width:8px;height:8px;border-radius:99px;
-      background:var(--accent);
-      box-shadow:0 0 0 6px rgba(56,217,110,.12);
+    .container{
+      width:min(1120px, 92%);
+      margin:0 auto;
     }
 
     /* Header */
     header{
-      position:sticky; top:0; z-index:50;
+      position:sticky;
+      top:0;
+      z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(10, 18, 14, .62);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 220px;
-    }
-    .brand img{
-      width:44px; height:44px; object-fit:contain;
-      border-radius:12px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      padding:6px;
-    }
-    .brand .title{
-      line-height:1.05;
-    }
-    .brand .title strong{font-size:14px; letter-spacing:.6px}
-    .brand .title span{display:block; color:var(--muted); font-size:12px; margin-top:2px}
-    nav ul{
-      display:flex; gap:18px; list-style:none; margin:0; padding:0;
-      align-items:center;
-    }
-    nav a{
-      color: rgba(255,255,255,.78);
-      font-size:14px;
-      padding:10px 10px;
-      border-radius:12px;
-    }
-    nav a:hover{background:rgba(255,255,255,.06); color:rgba(255,255,255,.95)}
-    .nav-cta{
-      display:flex; gap:10px; align-items:center;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.92);
-      font-weight:600;
-      font-size:14px;
-      cursor:pointer;
-      transition: transform .15s ease, background .15s ease, border .15s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.18)}
-    .btn.primary{
-      background: linear-gradient(180deg, rgba(56,217,110,.95), rgba(26,163,90,.92));
-      border-color: rgba(56,217,110,.45);
-      color: #07120b;
-      box-shadow: 0 18px 40px rgba(56,217,110,.12);
-    }
-    .btn.primary:hover{background: linear-gradient(180deg, rgba(56,217,110,1), rgba(26,163,90,1))}
-    .btn.ghost{
-      background: transparent;
-      border-color: rgba(255,255,255,.16);
+      background: rgba(247,248,250,.78);
+      border-bottom: 1px solid var(--line);
     }
 
-    /* Mobile nav */
-    .menu-btn{display:none}
-    .mobile{
-      display:none;
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 10px 0 16px;
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
     }
-    .mobile a{
-      display:block;
-      padding:12px 12px;
-      border-radius:12px;
-      color: rgba(255,255,255,.84);
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 220px;
     }
-    .mobile a:hover{background: rgba(255,255,255,.06)}
-    .mobile .row{display:grid; gap:8px; margin-top:10px}
+
+    /* ✅ Logo más grande y sin texto al lado */
+    .brand img{
+      width: 210px;         /* Ajusta si quieres aún más grande */
+      height: auto;
+      filter: drop-shadow(0 10px 20px rgba(2,6,23,.10));
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap: 18px;
+      padding:0;
+      margin:0;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      font-weight:700;
+      color: rgba(15,23,42,.78);
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: .18s ease;
+    }
+    nav a:hover{
+      background: var(--accent-soft);
+      color: var(--text);
+    }
+
+    .nav-cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: 0 10px 25px rgba(2,6,23,.06);
+      font-weight: 800;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(2,6,23,.10);
+    }
+
+    .btn.primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-color: rgba(31,122,59,.25);
+      color: white;
+    }
+
+    .btn.ghost{
+      background: transparent;
+    }
 
     /* Hero */
     .hero{
+      padding: 40px 0 26px;
+    }
+
+    .hero-card{
       position:relative;
       overflow:hidden;
-    }
-    .hero::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(90deg, rgba(10,18,14,.92) 10%, rgba(10,18,14,.72) 45%, rgba(10,18,14,.58) 65%, rgba(10,18,14,.25) 100%),
-        radial-gradient(700px 460px at 30% 30%, rgba(56,217,110,.16), transparent 60%);
-      z-index:1;
-    }
-    .hero-bg{
-      position:absolute; inset:0;
-      background: url("av-rig-daylight.jpg") center/cover no-repeat;
-      filter: saturate(1.04) contrast(1.02);
-      transform: scale(1.03);
-    }
-    .hero-content{
-      position:relative; z-index:2;
-      padding: 64px 0 56px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 26px;
-      align-items: end;
-    }
-    .h1{
-      font-size: clamp(34px, 4.2vw, 54px);
-      letter-spacing: .6px;
-      line-height: 1.05;
-      margin: 14px 0 12px;
-      text-transform: uppercase;
-    }
-    .lead{
-      font-size: clamp(16px, 1.5vw, 18px);
-      color: rgba(255,255,255,.82);
-      line-height: 1.6;
-      margin: 0 0 22px;
-      max-width: 60ch;
-    }
-    .hero-actions{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top: 8px;
-    }
-    .hero-side{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
       border-radius: var(--radius2);
-      padding: 18px 18px 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
-    .hero-side h3{
-      margin: 0 0 8px;
-      font-size: 15px;
+
+    .hero-media{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(2,6,23,.70) 0%, rgba(2,6,23,.38) 55%, rgba(2,6,23,.12) 100%),
+        url("av-rig-daylight.jpg") center/cover no-repeat;
+      filter: saturate(1.05);
+    }
+
+    .hero-inner{
+      position:relative;
+      padding: 64px 54px;
+      min-height: 420px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items:end;
+    }
+
+    .hero-kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
       color: rgba(255,255,255,.92);
-      letter-spacing:.2px;
+      font-weight: 800;
+      width: fit-content;
+      backdrop-filter: blur(8px);
     }
-    .hero-side p{
-      margin:0 0 14px;
-      color: rgba(255,255,255,.72);
-      font-size: 14px;
-      line-height:1.55;
+
+    .hero h1{
+      margin: 16px 0 14px;
+      color: white;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      text-shadow: 0 18px 40px rgba(2,6,23,.55);
     }
-    .kpis{
-      display:grid; grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
+
+    .hero p{
+      margin: 0 0 22px;
+      color: rgba(255,255,255,.88);
+      font-size: 18px;
+      line-height: 1.55;
+      max-width: 58ch;
     }
-    .kpi{
-      padding: 12px 12px;
-      border-radius: 16px;
-      background: rgba(0,0,0,.22);
-      border: 1px solid rgba(255,255,255,.12);
-    }
-    .kpi strong{
-      display:block;
-      font-size: 14px;
-      color: rgba(255,255,255,.92);
-      letter-spacing:.2px;
-    }
-    .kpi span{display:block; margin-top:6px; font-size: 12px; color: rgba(255,255,255,.70)}
-    .strip{
-      margin-top: 18px;
-      display:flex; flex-wrap:wrap; gap:10px;
+
+    .hero-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
       align-items:center;
     }
 
+    .hero-badges{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      align-items:flex-end;
+    }
+
+    .badge{
+      width: min(360px, 100%);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 18px;
+      padding: 14px 14px;
+      color: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+    }
+    .badge strong{ display:block; font-size: 14px; letter-spacing:.02em; }
+    .badge span{ display:block; font-size: 13px; color: rgba(255,255,255,.78); margin-top: 6px; line-height:1.35; }
+
     /* Sections */
-    section{padding: 52px 0}
+    section{
+      padding: 46px 0;
+    }
+
     .section-head{
-      display:flex; justify-content:space-between; align-items:end; gap:18px;
+      display:flex;
+      justify-content:space-between;
+      gap: 16px;
+      align-items:end;
       margin-bottom: 18px;
     }
+
     .section-head h2{
       margin:0;
-      font-size: 28px;
-      letter-spacing:.2px;
+      font-size: clamp(22px, 2.3vw, 34px);
+      letter-spacing: -0.02em;
     }
+
     .section-head p{
       margin:0;
       color: var(--muted);
-      max-width: 68ch;
-      line-height:1.6;
-      font-size: 15px;
+      max-width: 62ch;
+      line-height: 1.55;
     }
-    .grid{
+
+    .grid-2{
       display:grid;
-      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items:stretch;
     }
-    .two{grid-template-columns: 1fr 1fr}
-    .three{grid-template-columns: repeat(3, 1fr)}
+
     .card{
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius2);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 34px rgba(2,6,23,.07);
       overflow:hidden;
-      box-shadow: 0 12px 40px rgba(0,0,0,.25);
-    }
-    .card .pad{padding: 18px}
-    .card h3{margin:0 0 10px; font-size: 18px; letter-spacing:.15px}
-    .card p{margin:0; color: var(--muted); line-height:1.6; font-size: 14px}
-    .thumb{
-      height: 210px;
-      background: #0b0b0b;
-      position:relative;
-    }
-    .thumb img{
-      width:100%; height:100%; object-fit:cover;
-      filter: saturate(1.03) contrast(1.02);
-    }
-    .badge{
-      position:absolute; left:14px; top:14px;
-      background: rgba(7,18,11,.72);
-      border: 1px solid rgba(56,217,110,.28);
-      color: rgba(255,255,255,.88);
-      padding: 8px 10px;
-      font-size: 12px;
-      border-radius: 999px;
-      display:inline-flex; gap:8px; align-items:center;
-      backdrop-filter: blur(8px);
-    }
-    .badge .mini{width:7px;height:7px;border-radius:99px;background:var(--accent)}
-    .list{
-      display:grid;
-      gap:10px;
-      margin: 10px 0 0;
-      padding:0;
-      list-style:none;
-    }
-    .list li{
-      display:flex; gap:10px; align-items:flex-start;
-      color: rgba(255,255,255,.78);
-      line-height:1.5;
-      font-size: 14px;
-    }
-    .tick{
-      width:18px;height:18px;border-radius:8px;
-      background: rgba(56,217,110,.14);
-      border: 1px solid rgba(56,217,110,.28);
-      display:inline-flex; align-items:center; justify-content:center;
-      flex: 0 0 18px;
-      margin-top:2px;
-    }
-    .tick::before{
-      content:"";
-      width:8px;height:5px;
-      border-left:2px solid var(--accent);
-      border-bottom:2px solid var(--accent);
-      transform: rotate(-45deg);
-      display:block;
     }
 
-    /* About / Who */
-    .about{
-      display:grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    .about .photo{
-      border-radius: var(--radius2);
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-    }
-    .about .photo img{
-      width:100%; height:100%; object-fit:cover;
-      min-height: 340px;
-    }
-    .about .box{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    /* Method */
-    .steps{
-      display:grid;
-      gap: 14px;
-    }
-    .step{
-      display:flex; gap:14px;
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.12);
-    }
-    .n{
-      width:34px;height:34px;border-radius:12px;
-      display:flex; align-items:center; justify-content:center;
-      background: rgba(56,217,110,.14);
-      border: 1px solid rgba(56,217,110,.30);
-      color: rgba(255,255,255,.92);
-      font-weight: 800;
-      flex: 0 0 34px;
-    }
-    .step strong{display:block; margin-bottom:6px}
-    .step span{color: var(--muted); font-size: 14px; line-height:1.6}
-
-    /* CTA */
-    .cta{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(56,217,110,.24);
-      background:
-        radial-gradient(700px 360px at 20% 20%, rgba(56,217,110,.20), transparent 55%),
-        rgba(255,255,255,.06);
+    .card-pad{
       padding: 22px;
-      box-shadow: var(--shadow);
-      display:flex; align-items:center; justify-content:space-between; gap: 16px;
-      flex-wrap:wrap;
     }
-    .cta h3{margin:0; font-size: 18px}
-    .cta p{margin:6px 0 0; color: var(--muted); line-height:1.6; font-size:14px; max-width: 70ch}
-    .cta .actions{display:flex; gap:10px; flex-wrap:wrap}
 
-    /* Footer */
-    footer{
-      padding: 26px 0 36px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
+    .about-media{
+      height: 360px;
+      background:
+        linear-gradient(180deg, rgba(2,6,23,.08), rgba(2,6,23,.22)),
+        url("av-quienes-laboratorio.jpg") center/cover no-repeat;
     }
-    .foot{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      color: rgba(255,255,255,.70);
-      font-size: 13px;
-      line-height:1.6;
+
+    .about-list{
+      display:grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .pill{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+    }
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      margin-top: 6px;
+      flex: 0 0 auto;
+    }
+    .pill b{ display:block; }
+    .pill span{ display:block; color: var(--muted); margin-top: 4px; line-height:1.4; }
+
+    /* Services */
+    .services{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .service-img{
+      height: 200px;
+      background: #e8eef2;
+    }
+
+    .service-title{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing:-0.01em;
+    }
+
+    .service-text{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-top: 18px;
+      align-items:stretch;
+    }
+
+    .contact-box{
+      background: linear-gradient(135deg, rgba(31,122,59,.10), rgba(42,166,90,.08));
+      border: 1px solid rgba(31,122,59,.22);
+    }
+
+    .contact .small{
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 10px 0 0;
+    }
+
+    .contact-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin-top: 16px;
+    }
+
+    footer{
+      padding: 26px 0 46px;
+      color: rgba(15,23,42,.65);
+      border-top: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(10px);
+    }
+
+    /* WhatsApp floating button */
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #25D366, #1fb855);
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 18px 40px rgba(2,6,23,.22);
+      border: 1px solid rgba(255,255,255,.28);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .wa-float:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 24px 55px rgba(2,6,23,.28);
+    }
+    .wa-ico{
+      width: 18px;
+      height: 18px;
+      display:inline-block;
+      background: rgba(255,255,255,.18);
+      border-radius: 6px;
+      position: relative;
+    }
+    .wa-ico::after{
+      content:"";
+      position:absolute;
+      inset: 4px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,.85);
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+      transform: rotate(45deg);
     }
 
     /* Responsive */
-    @media (max-width: 940px){
-      .hero-grid{grid-template-columns: 1fr}
-      .about{grid-template-columns: 1fr}
-      .three{grid-template-columns: 1fr}
-      .two{grid-template-columns: 1fr}
-      nav ul{display:none}
-      .menu-btn{display:inline-flex}
-      .mobile{display:none}
-      .mobile.open{display:block}
-      .brand{min-width:auto}
+    @media (max-width: 980px){
+      .hero-inner{
+        grid-template-columns: 1fr;
+        min-height: 460px;
+        padding: 46px 22px;
+      }
+      .hero-badges{ align-items:flex-start; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .services{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .brand img{ width: 180px; }
+    }
+
+    @media (max-width: 520px){
+      nav ul{ display:none; }
+      .brand img{ width: 165px; }
+      .hero p{ font-size: 16px; }
+      .wa-float{ right: 12px; bottom: 12px; }
     }
   </style>
 </head>
 
 <body>
+
   <!-- Header -->
   <header>
-    <div class="wrap">
+    <div class="container">
       <div class="nav">
-        <a class="brand" href="#inicio" aria-label="Ir al inicio">
-          <img src="logo-terramab.png" alt="Logo TerraMab Ing">
-          <div class="title">
-            <strong>TERRAMAB ING</strong>
-            <span>Ingeniería de Riesgos</span>
-          </div>
+        <a class="brand" href="#inicio" aria-label="TerraMab Ing">
+          <img src="logo-terramab.png" alt="Logo TerraMab Ing" />
         </a>
 
         <nav aria-label="Navegación principal">
@@ -432,25 +441,13 @@
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#quienes">Quiénes somos</a></li>
             <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#metodo">Metodología</a></li>
             <li><a href="#contacto">Contáctanos</a></li>
           </ul>
         </nav>
 
         <div class="nav-cta">
-          <a class="btn ghost menu-btn" href="javascript:void(0)" id="menuBtn" aria-label="Abrir menú">Menú</a>
-          <a class="btn primary" href="#contacto">Solicitar contacto</a>
-        </div>
-      </div>
-
-      <div class="mobile" id="mobileNav" aria-label="Menú móvil">
-        <a href="#inicio">Inicio</a>
-        <a href="#quienes">Quiénes somos</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#metodo">Metodología</a>
-        <a href="#contacto">Contáctanos</a>
-        <div class="row">
-          <a class="btn primary" href="#contacto">Solicitar contacto</a>
+          <a class="btn ghost" href="#contacto">Solicitar contacto</a>
+          <a class="btn primary" href="https://wa.me/57315337116" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -458,338 +455,226 @@
 
   <!-- Hero -->
   <main id="inicio" class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="wrap hero-content">
-      <div class="hero-grid">
-        <div>
-          <span class="pill"><span class="dot"></span>Asesoría técnica • Auditoría especializada • Capacitación</span>
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-media" role="img" aria-label="Taladro en operación durante el día"></div>
 
-          <h1 class="h1">Gestión de riesgos con enfoque técnico y verificable</h1>
+        <div class="hero-inner">
+          <div>
+            <div class="hero-kicker">Ingeniería de riesgos • SST • Riesgo químico</div>
 
-          <p class="lead">
-            Acompañamos organizaciones que <strong>utilizan, manipulan o almacenan sustancias químicas</strong> y que requieren
-            fortalecer su desempeño en <strong>SST</strong>, <strong>higiene industrial</strong> y <strong>gestión del riesgo químico</strong>,
-            mediante diagnósticos, planes de intervención y soporte documental aplicado al contexto real de operación.
-          </p>
+            <h1>Ingeniería de riesgos aplicada a entornos reales de trabajo</h1>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="#contacto">Conversemos</a>
-            <a class="btn" href="#servicios">Ver servicios</a>
-            <a class="btn ghost" href="#metodo">Cómo trabajamos</a>
+            <p>
+              Asesoría técnica, auditoría especializada y capacitación orientada a control operativo,
+              cumplimiento y mejora continua en la gestión del riesgo químico y la seguridad industrial.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#contacto">Conversemos</a>
+              <a class="btn" href="#servicios">Ver servicios</a>
+            </div>
           </div>
 
-          <div class="strip">
-            <span class="pill">Soporte en: SGA / FDS / Etiquetado</span>
-            <span class="pill">Matrices: IPEVR / compatibilidad</span>
-            <span class="pill">Inspecciones y verificación en campo</span>
+          <div class="hero-badges">
+            <div class="badge">
+              <strong>Enfoque técnico y verificable</strong>
+              <span>Diagnóstico, hallazgos y acciones con criterios aplicables en campo.</span>
+            </div>
+            <div class="badge">
+              <strong>Metodologías de control</strong>
+              <span>Jerarquía de controles, condiciones locativas, señalización, procedimientos y gestión documental.</span>
+            </div>
+            <div class="badge">
+              <strong>Implementación práctica</strong>
+              <span>Acompañamiento para cierres, seguimiento e indicadores de avance cuando aplique.</span>
+            </div>
           </div>
         </div>
 
-        <aside class="hero-side">
-          <h3>Enfoque de trabajo</h3>
-          <p>
-            Priorización de controles según criticidad del peligro, exposición y eficacia real de las barreras.
-            Entregables listos para implementación y seguimiento.
-          </p>
-
-          <div class="kpis">
-            <div class="kpi">
-              <strong>Riesgo químico</strong>
-              <span>Identificación, evaluación y control</span>
-            </div>
-            <div class="kpi">
-              <strong>SST</strong>
-              <span>Verificación y mejora continua</span>
-            </div>
-            <div class="kpi">
-              <strong>Higiene</strong>
-              <span>Exposición y controles operativos</span>
-            </div>
-            <div class="kpi">
-              <strong>Documental</strong>
-              <span>Procedimientos, matrices, registros</span>
-            </div>
-          </div>
-        </aside>
       </div>
     </div>
   </main>
 
-  <!-- Quiénes somos -->
+  <!-- About -->
   <section id="quienes">
-    <div class="wrap">
+    <div class="container">
       <div class="section-head">
         <div>
           <h2>Quiénes somos</h2>
           <p>
-            TerraMab Ing es una firma de ingeniería orientada a la <strong>gestión técnica de riesgos</strong>, con foco en condiciones
-            de seguridad, cumplimiento y control operacional en entornos donde existen peligros químicos e industriales.
+            TerraMab Ing es una firma enfocada en ingeniería de riesgos para organizaciones que requieren
+            fortalecimiento técnico en SST, higiene industrial y gestión del riesgo químico.
           </p>
         </div>
       </div>
 
-      <div class="about">
-        <div class="photo">
-          <img src="av-quienes-laboratorio.jpg" alt="Ambiente de laboratorio / trabajo técnico">
-        </div>
-
-        <div class="box">
-          <h3>Lo que hacemos (sin teoría innecesaria)</h3>
-          <p>
-            Integramos información de inventarios, FDS, observaciones de campo y requisitos del SG-SST para convertirlos en
-            acciones concretas: controles, señalización, almacenamiento seguro, procedimientos y evidencias verificables.
-          </p>
-
-          <ul class="list" style="margin-top:14px">
-            <li><span class="tick"></span>Diagnóstico técnico del riesgo químico y condiciones de almacenamiento</li>
-            <li><span class="tick"></span>Mejora documental aplicada: procedimientos, instructivos y registros</li>
-            <li><span class="tick"></span>Capacitación con enfoque operativo (lo que se hace, cómo se verifica)</li>
-            <li><span class="tick"></span>Auditoría y seguimiento: hallazgos, plan de acción y cierre</li>
-          </ul>
-
-          <div style="margin-top:16px">
-            <a class="btn primary" href="#contacto">Solicitar diagnóstico</a>
-            <a class="btn" href="#servicios">Ver servicios</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Servicios -->
-  <section id="servicios">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Nuestros servicios</h2>
-          <p>
-            Tres líneas de servicio para soportar la implementación: intervención técnica, verificación y formación.
-            Ajustamos alcance y profundidad según criticidad del proceso y exposición real.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid three">
-        <article class="card">
-          <div class="thumb">
-            <img src="av-servicio-capacitacion-operativa.jpg" alt="Capacitación operativa">
-            <span class="badge"><span class="mini"></span>Capacitación</span>
-          </div>
-          <div class="pad">
-            <h3>Capacitación operativa</h3>
-            <p>
-              Formación aplicada en manejo seguro de sustancias químicas, controles, emergencias, almacenamiento y buenas prácticas.
-              Orientada a conductas seguras y criterios verificables.
-            </p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb">
-            <img src="av-servicio-asesoria-almacenamiento.jpg" alt="Asesoría técnica en almacenamiento y control">
-            <span class="badge"><span class="mini"></span>Asesoría técnica</span>
-          </div>
-          <div class="pad">
-            <h3>Asesoría técnica</h3>
-            <p>
-              Diagnóstico, diseño de controles y acompañamiento para fortalecer matrices, procedimientos y condiciones locativas
-              asociadas al riesgo químico y a la operación segura.
-            </p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb">
-            <img src="av-servicio-auditoria-industrial2.jpg" alt="Auditoría e inspección técnica">
-            <span class="badge"><span class="mini"></span>Auditoría / inspección</span>
-          </div>
-          <div class="pad">
-            <h3>Auditoría especializada</h3>
-            <p>
-              Inspecciones y verificaciones con hallazgos claros, priorización de criticidad y plan de acción trazable.
-              Enfocado en cierre efectivo y sostenibilidad del control.
-            </p>
-          </div>
-        </article>
-      </div>
-
-      <div style="height:18px"></div>
-
-      <div class="cta">
-        <div>
-          <h3>¿Buscas un acompañamiento que realmente aterrice en la operación?</h3>
-          <p>
-            Si tienes inventario químico, condiciones de almacenamiento por mejorar, hallazgos recurrentes o necesidad de fortalecer
-            controles y evidencias, estructuramos un plan técnico con entregables implementables.
-          </p>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="#contacto">Solicitar contacto</a>
-          <a class="btn" href="#metodo">Ver metodología</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Metodología -->
-  <section id="metodo">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Metodología de intervención</h2>
-          <p>
-            Un flujo de trabajo simple, pero robusto: diagnóstico, priorización, control y verificación. Lo importante es que
-            el resultado sea trazable y defendible técnicamente.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid two">
+      <div class="grid-2">
         <div class="card">
-          <div class="pad">
-            <h3>Cómo se ejecuta</h3>
-            <div class="steps">
-              <div class="step">
-                <div class="n">1</div>
+          <div class="about-media"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-pad">
+            <h3 style="margin:0; font-size:18px; letter-spacing:-0.01em;">Acompañamiento orientado a resultados</h3>
+            <p style="margin:10px 0 0; color:var(--muted); line-height:1.6;">
+              El foco está en control de riesgos, cumplimiento y mejora operativa: desde la revisión documental
+              hasta la verificación en sitio, priorizando acciones con impacto real en el nivel de riesgo.
+            </p>
+
+            <div class="about-list">
+              <div class="pill">
+                <div class="dot"></div>
                 <div>
-                  <strong>Levantamiento y diagnóstico</strong>
-                  <span>Inventario, FDS/SGA, condiciones de almacenamiento, procesos y exposición. Identificación de brechas y riesgos críticos.</span>
+                  <b>Gestión del riesgo químico</b>
+                  <span>Inventarios, SGA (etiquetado/FDS), almacenamiento, compatibilidad y control de exposición.</span>
                 </div>
               </div>
-              <div class="step">
-                <div class="n">2</div>
+
+              <div class="pill">
+                <div class="dot"></div>
                 <div>
-                  <strong>Priorización y controles</strong>
-                  <span>Definición de medidas de ingeniería, administrativas y EPP. Recomendaciones con criterios de cierre y verificación.</span>
+                  <b>Inspección y auditoría técnica</b>
+                  <span>Hallazgos verificables, plan de acción, trazabilidad y seguimiento.</span>
                 </div>
               </div>
-              <div class="step">
-                <div class="n">3</div>
+
+              <div class="pill">
+                <div class="dot"></div>
                 <div>
-                  <strong>Implementación y soporte documental</strong>
-                  <span>Procedimientos, instructivos, matrices y registros. Ajustes según hallazgos y cambios de productos/procesos.</span>
-                </div>
-              </div>
-              <div class="step">
-                <div class="n">4</div>
-                <div>
-                  <strong>Seguimiento y mejora continua</strong>
-                  <span>Inspecciones periódicas, evidencias, indicadores internos (si aplica) y cierre de acciones correctivas.</span>
+                  <b>Capacitación aplicada</b>
+                  <span>Formación orientada a la operación y al cierre de brechas identificadas.</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="thumb" style="height:100%">
-            <img src="av-capacitacion-grupo.jpg" alt="Espacio real de capacitación">
-            <span class="badge"><span class="mini"></span>Trabajo real, evidencias reales</span>
+            <div style="margin-top:18px;">
+              <a class="btn primary" href="#contacto">Solicitar contacto</a>
+              <a class="btn" style="margin-left:10px;" href="#servicios">Servicios</a>
+            </div>
           </div>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Servicios</h2>
+          <p>
+            Líneas de trabajo diseñadas para apoyar procesos de control, cumplimiento y estandarización en SST y riesgo químico.
+          </p>
+        </div>
+      </div>
+
+      <div class="services">
+
+        <article class="card">
+          <div class="service-img" style="background:
+            linear-gradient(180deg, rgba(2,6,23,.06), rgba(2,6,23,.18)),
+            url('av-servicio-capacitacion-operativa.jpg') center/cover no-repeat;"></div>
+          <div class="card-pad">
+            <h3 class="service-title">Capacitación</h3>
+            <p class="service-text">
+              Programas de formación enfocados en prácticas seguras, control operacional, SGA y respuesta ante emergencias químicas.
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="service-img" style="background:
+            linear-gradient(180deg, rgba(2,6,23,.06), rgba(2,6,23,.18)),
+            url('av-servicio-asesoria-almacenamiento.jpg') center/cover no-repeat;"></div>
+          <div class="card-pad">
+            <h3 class="service-title">Asesoría técnica</h3>
+            <p class="service-text">
+              Diagnóstico, implementación y mejora de controles: almacenamiento seguro, procedimientos, señalización y gestión documental.
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="service-img" style="background:
+            linear-gradient(180deg, rgba(2,6,23,.06), rgba(2,6,23,.18)),
+            url('av-servicio-auditoria-industrial2.jpg') center/cover no-repeat;"></div>
+          <div class="card-pad">
+            <h3 class="service-title">Auditoría especializada</h3>
+            <p class="service-text">
+              Evaluación técnica con hallazgos trazables y plan de acción para cierre, seguimiento y verificación de cumplimiento.
+            </p>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- Contacto -->
+  <!-- Contact -->
   <section id="contacto">
-    <div class="wrap">
+    <div class="container">
       <div class="section-head">
         <div>
           <h2>Contáctanos</h2>
           <p>
-            Deja tus datos y el contexto de tu necesidad. Te respondemos con una ruta de trabajo (alcance + entregables sugeridos).
+            Si quieres que revisemos tu necesidad y definamos un alcance técnico, podemos coordinar una llamada o visita.
           </p>
         </div>
       </div>
 
-      <div class="grid two">
-        <div class="card">
-          <div class="pad">
-            <h3>Solicitud de contacto</h3>
-            <p style="margin-bottom:14px">
-              (Este formulario es visual. Si quieres que realmente envíe correos, después lo conectamos con Formspree o similar.)
+      <div class="contact">
+        <div class="card contact-box">
+          <div class="card-pad">
+            <h3 style="margin:0; font-size:18px;">Canales de contacto</h3>
+            <p class="small">
+              WhatsApp: <b>+57 315 393 7116</b><br/>
+              (También puedes usar el botón flotante abajo a la derecha.)
             </p>
 
-            <form onsubmit="event.preventDefault(); alert('Listo ✅ Formulario de muestra. Luego lo conectamos a un servicio de envío.');">
-              <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Nombre</label>
-              <input required type="text" placeholder="Tu nombre"
-                style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:12px;">
-
-              <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Correo</label>
-              <input required type="email" placeholder="tucorreo@empresa.com"
-                style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:12px;">
-
-              <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Mensaje</label>
-              <textarea required rows="5" placeholder="Cuéntame brevemente qué necesitas (ej. almacenamiento, SGA, matrices, auditoría, capacitación, etc.)"
-                style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:14px; resize:vertical;"></textarea>
-
-              <button class="btn primary" type="submit">Enviar solicitud</button>
-            </form>
+            <div class="contact-actions">
+              <a class="btn primary" href="https://wa.me/57315337116" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+              <a class="btn" href="#inicio">Volver al inicio</a>
+            </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="pad">
-            <h3>¿Qué información ayuda a cotizar mejor?</h3>
-            <ul class="list">
-              <li><span class="tick"></span>Tipo de proceso (operativo/administrativo) y áreas involucradas.</li>
-              <li><span class="tick"></span>Listado o inventario de sustancias (si existe) y disponibilidad de FDS.</li>
-              <li><span class="tick"></span>Condiciones actuales: almacenamiento, señalización, kits, EPP, procedimientos.</li>
-              <li><span class="tick"></span>Hallazgos recurrentes o incidentes asociados (si aplica).</li>
-              <li><span class="tick"></span>Alcance requerido: diagnóstico, intervención, auditoría o formación.</li>
-            </ul>
-
-            <div style="height:14px"></div>
-
-            <div class="cta" style="padding:18px">
-              <div>
-                <h3 style="margin:0; font-size:16px">Siguiente paso</h3>
-                <p style="margin:6px 0 0; font-size:14px">
-                  Si ya tienes un objetivo claro, estructuramos un plan con entregables, responsables y cronograma sugerido.
-                </p>
-              </div>
-              <div class="actions">
-                <a class="btn" href="#servicios">Ver servicios</a>
-                <a class="btn primary" href="#inicio">Volver al inicio</a>
-              </div>
+          <div class="card-pad">
+            <h3 style="margin:0; font-size:18px;">Qué puedes solicitar</h3>
+            <p class="small">
+              • Diagnóstico y plan de acción<br/>
+              • Revisión documental y verificación en campo<br/>
+              • Programas de capacitación y socialización de procedimientos<br/>
+              • Implementación/ajustes SGA (etiquetado, FDS, almacenamiento)
+            </p>
+            <div style="margin-top:14px; padding:12px; border-radius:16px; background:var(--surface-2); border:1px solid var(--line); color:var(--muted); line-height:1.45;">
+              <b style="color:var(--text);">Tip:</b> si ya tienes inventario de químicos o fotos del almacenamiento, nos acelera el diagnóstico.
             </div>
-
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
   <footer>
-    <div class="wrap">
-      <div class="foot">
-        <div>
-          <strong style="color:rgba(255,255,255,.85)">TerraMab Ing</strong><br>
-          <span>Ingeniería de Riesgos • SST • Higiene Industrial • Gestión del Riesgo Químico</span>
-        </div>
-        <div>
-          <span>© <span id="year"></span> TerraMab Ing. Todos los derechos reservados.</span>
-        </div>
-      </div>
+    <div class="container" style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+      <div>© <span id="year"></span> TerraMab Ing – Ingeniería de Riesgos</div>
+      <div style="opacity:.85;">SST • Higiene industrial • Riesgo químico</div>
     </div>
   </footer>
 
+  <!-- WhatsApp floating button -->
+  <a class="wa-float" href="https://wa.me/57315337116" target="_blank" rel="noopener" aria-label="WhatsApp TerraMab Ing">
+    <span class="wa-ico" aria-hidden="true"></span>
+    WhatsApp
+  </a>
+
   <script>
-    // Año footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Menú móvil
-    const btn = document.getElementById("menuBtn");
-    const mobile = document.getElementById("mobileNav");
-    btn?.addEventListener("click", () => {
-      mobile.classList.toggle("open");
-    });
-
-    // Cerrar menú móvil al hacer clic en un link
-    mobile?.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => mobile.classList.remove("open"));
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

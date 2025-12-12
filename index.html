@@ -73,17 +73,20 @@
       gap:16px;
     }
     .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 220px;
-    }
-    .brand img{
-  width:72px; height:72px; object-fit:contain;
-  border-radius:16px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
-  padding:10px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-width:260px;   /* más espacio reservado al logo */
 }
-
+    .brand img{
+  width:110px;              /* más ancho */
+  height:auto;              /* mantiene proporción real */
+  max-height:90px;          /* evita que rompa el header */
+  object-fit:contain;
+  background: transparent;  /* elimina “cajita” */
+  border:none;              /* sin borde */
+  padding:0;                /* sin relleno */
+}
     .brand .title{
       line-height:1.05;
     }

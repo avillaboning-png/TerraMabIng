@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TerraMab Ing — Ingeniería de Riesgos</title>
+  <meta name="description" content="Asesoría técnica, auditoría especializada y capacitación en gestión del riesgo químico, SST e higiene industrial." />
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --bg-soft: #0f1a2f;
+      --card: rgba(255,255,255,.06);
+      --card-strong: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --line: rgba(255,255,255,.14);
+      --accent: #2fd17a;     /* verde técnico sobrio */
+      --accent2:#22b5a6;     /* verde-azulado */
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(34,181,166,.18), transparent 60%),
+                  radial-gradient(900px 600px at 95% 20%, rgba(47,209,122,.16), transparent 55%),
+                  linear-gradient(180deg, #070b14 0%, #0b1220 40%, #070b14 100%);
+      color: var(--text);
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding:8px 12px;
+      border-radius:999px;
+      color: var(--muted);
+      font-size: 13px;
+      backdrop-filter: blur(8px);
+    }
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 16px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing:.2px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.22);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      border-color: rgba(47,209,122,.35);
+      background: linear-gradient(135deg, rgba(47,209,122,.22), rgba(34,181,166,.18));
+    }
+    .btn.primary:hover{border-color: rgba(47,209,122,.55)}
+
+    /* NAV */
+    header{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,11,20,.45);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      height:68px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
+    .brandMark{
+      width:38px;height:38px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(47,209,122,.30), rgba(34,181,166,.22));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 10px 22px rgba(0,0,0,.25);
+      display:grid; place-items:center;
+      font-weight:900;
+      letter-spacing:.5px;
+    }
+    .brandText{display:flex; flex-direction:column; line-height:1.05}
+    .brandText strong{font-size:14px; letter-spacing:.6px}
+    .brandText span{font-size:12px; color:var(--muted)}
+    nav ul{
+      list-style:none; display:flex; gap:18px; padding:0; margin:0;
+      align-items:center;
+    }
+    nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding:10px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .15s ease;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .navCta{display:flex; gap:10px; align-items:center}
+
+    /* HERO */
+    .hero{
+      position: relative;
+      padding: 72px 0 52px;
+      overflow:hidden;
+    }
+    .hero .heroBg{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(7,11,20,.92) 0%, rgba(7,11,20,.78) 45%, rgba(7,11,20,.62) 100%),
+        radial-gradient(800px 520px at 18% 35%, rgba(47,209,122,.16), transparent 55%),
+        url("av-rig-daylight.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.02) contrast(1.04);
+      transform: scale(1.02);
+    }
+    .hero .heroShade{
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(7,11,20,.15) 0%, rgba(7,11,20,.60) 70%, rgba(7,11,20,.92) 100%);
+    }
+    .heroContent{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .h1{
+      font-size: clamp(34px, 4.4vw, 58px);
+      line-height: 1.03;
+      margin: 14px 0 14px;
+      letter-spacing: .2px;
+      text-shadow: 0 10px 30px rgba(0,0,0,.30);
+    }
+    .lead{
+      font-size: 16px;
+      line-height: 1.55;
+      color: rgba(255,255,255,.80);
+      max-width: 54ch;
+      margin: 0 0 18px;
+    }
+    .heroActions{display:flex; gap:12px; flex-wrap:wrap; margin-top: 14px}
+    .heroCard{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      border-radius: var(--radius2);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .heroCard h3{margin:0 0 10px; font-size: 14px; letter-spacing:.4px}
+    .heroList{margin:0; padding:0; list-style:none; display:grid; gap:10px}
+    .heroList li{
+      display:flex; gap:10px; align-items:flex-start;
+      color: rgba(255,255,255,.78);
+      font-size: 13px; line-height: 1.4;
+    }
+    .check{
+      width:18px;height:18px;border-radius:6px;
+      background: rgba(47,209,122,.18);
+      border:1px solid rgba(47,209,122,.34);
+      display:grid; place-items:center;
+      margin-top: 1px;
+      flex: 0 0 18px;
+    }
+    .check svg{width:12px;height:12px; fill: var(--accent)}
+
+    /* SECTIONS */
+    section{padding: 54px 0}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 18px; margin-bottom: 18px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: .2px;
+    }
+    .sectionTitle p{margin:0; color: var(--muted); max-width: 62ch; font-size: 14px; line-height:1.5}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .card{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 14px 34px rgba(0,0,0,.22);
+    }
+    .card.soft{background: rgba(255,255,255,.05)}
+    .card h3{margin:0 0 10px; font-size: 16px}
+    .card p{margin:0; color: rgba(255,255,255,.78); line-height: 1.55; font-size: 14px}
+
+    .aboutWrap{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .imgFrame{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+    }
+    .imgFrame img{width:100%; height:100%; display:block; object-fit:cover}
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .kpi{
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .kpi strong{display:block; font-size: 18px}
+    .kpi span{display:block; font-size: 12px; color: var(--muted); margin-top: 6px}
+
+    /* SERVICES */
+    .services{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .serviceCard{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      min-height: 420px;
+    }
+    .serviceCard .thumb{
+      height: 210px;
+      position:relative;
+    }
+    .serviceCard .thumb::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(7,11,20,.02) 0%, rgba(7,11,20,.55) 100%);
+    }
+    .serviceCard img{width:100%; height:100%; object-fit:cover; display:block}
+    .serviceCard .body{padding: 16px}
+    .tag{
+      display:inline-flex;
+      gap:8px; align-items:center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.80);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .serviceCard h3{margin:0 0 8px; font-size: 18px}
+    .serviceCard p{margin:0; color: rgba(255,255,255,.78); font-size: 13.5px; line-height: 1.55}
+    .serviceCard ul{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.76);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    /* CONTACT */
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .contactCard{
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .contactCard h3{margin:0 0 8px}
+    .contactRow{
+      display:flex; gap:12px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      margin-top: 10px;
+    }
+    .contactRow strong{display:block; font-size: 13px}
+    .contactRow span{display:block; font-size: 12px; color: var(--muted); margin-top: 4px}
+    .icon{
+      width:38px; height:38px; border-radius: 14px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(47,209,122,.10);
+      flex: 0 0 38px;
+    }
+
+    footer{
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroContent{grid-template-columns: 1fr; gap: 16px}
+      .aboutWrap{grid-template-columns: 1fr; }
+      .grid2{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .contactGrid{grid-template-columns:1fr}
+      nav ul{display:none}
+      .brand{min-width:auto}
+      .kpis{grid-template-columns: 1fr}
+      .serviceCard{min-height: auto}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="TerraMab Ing">
+      <div class="brandMark">TM</div>
+      <div class="brandText">
+        <strong>TERRAMAB ING</strong>
+        <span>Ingeniería de Riesgos</span>
+      </div>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quienes">Quiénes somos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contáctanos</a></li>
+      </ul>
+    </nav>
+
+    <div class="navCta">
+      <a class="btn" href="#contacto">Solicitar contacto</a>
+      <a class="btn primary" href="#servicios">Ver servicios</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO / INTRODUCCIÓN -->
+  <section id="inicio" class="hero" aria-label="Introducción">
+    <div class="heroBg" role="img" aria-label="Entorno industrial de alta complejidad"></div>
+    <div class="heroShade"></div>
+
+    <div class="container heroContent">
+      <div>
+        <div class="pill"><span class="dot"></span> Gestión del riesgo con enfoque técnico y trazabilidad documental</div>
+        <h1 class="h1">Ingeniería de riesgos para prevenir incidentes, controlar la exposición y mejorar el cumplimiento.</h1>
+        <p class="lead">
+          Acompañamos organizaciones con actividades de <strong>alto impacto operativo</strong> en la identificación,
+          evaluación y control de peligros, con especial énfasis en <strong>riesgo químico</strong>, higiene industrial y SST.
+        </p>
+
+        <div class="heroActions">
+          <a class="btn primary" href="#contacto">Conversemos</a>
+          <a class="btn" href="#quienes">Conocer la firma</a>
+        </div>
+      </div>
+
+      <aside class="heroCard" aria-label="Líneas de intervención">
+        <h3>Alcance de intervención</h3>
+        <ul class="heroList">
+          <li>
+            <span class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8.5-8.5 1.4 1.4z"/></svg>
+            </span>
+            Diagnóstico técnico y priorización: peligros, controles existentes y brechas críticas.
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8.5-8.5 1.4 1.4z"/></svg>
+            </span>
+            Implementación: procedimientos, matrices, estándares operativos y evidencia verificable.
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8.5-8.5 1.4 1.4z"/></svg>
+            </span>
+            Capacitación aplicada: competencias, conducta segura y control de exposición en campo.
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes" aria-label="Quiénes somos">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2>Quiénes somos</h2>
+        <p>
+          Firma enfocada en ingeniería aplicada para la gestión del riesgo, con entregables claros,
+          verificables y orientados al control efectivo de peligros.
+        </p>
+      </div>
+
+      <div class="aboutWrap">
+        <div class="card">
+          <h3>Enfoque técnico</h3>
+          <p>
+            Desarrollamos intervenciones con criterio de <strong>prevención</strong> y <strong>control</strong>:
+            identificación de peligros, evaluación de riesgos, definición de medidas de intervención,
+            y verificación de implementación con soporte documental y evidencias en campo.
+          </p>
+
+          <div class="kpis" aria-label="Diferenciales">
+            <div class="kpi">
+              <strong>Riesgo químico</strong>
+              <span>SGA/FDS, compatibilidad, almacenamiento, derrames, exposición.</span>
+            </div>
+            <div class="kpi">
+              <strong>Higiene industrial</strong>
+              <span>Controles de ingeniería, administrativos y EPP según riesgo.</span>
+            </div>
+            <div class="kpi">
+              <strong>Auditoría / verificación</strong>
+              <span>Brechas, hallazgos, plan de acción y seguimiento.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="imgFrame" aria-label="Imagen de soporte (capacitación / entorno técnico)">
+          <!-- Foto real (elige una de estas según prefieras):
+               1) av-quienes-laboratorio.jpg
+               2) av-capacitacion-grupo.jpg
+               3) av-servicio-capacitacion-operativa.jpg
+          -->
+          <img src="av-quienes-laboratorio.jpg" alt="Espacio técnico de formación y control operativo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" aria-label="Servicios">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2>Nuestros servicios</h2>
+        <p>
+          Líneas diseñadas para escenarios de riesgo alto y también para organizaciones que requieren
+          estructurar su gestión desde niveles básicos hasta avanzados.
+        </p>
+      </div>
+
+      <div class="services">
+
+        <!-- Capacitación -->
+        <article class="serviceCard">
+          <div class="thumb">
+            <img src="av-servicio-capacitacion-operativa.jpg" alt="Capacitación aplicada en seguridad y control de riesgos" />
+          </div>
+          <div class="body">
+            <div class="tag"><span class="dot"></span> Formación aplicada</div>
+            <h3>Capacitación</h3>
+            <p>
+              Programas orientados a competencia operativa: reconocimiento de peligros, conducta segura,
+              controles críticos, lectura de FDS/etiquetado y respuesta ante eventos.
+            </p>
+            <ul>
+              <li>Buenas prácticas de manipulación y almacenamiento.</li>
+              <li>Control de exposición y selección de EPP.</li>
+              <li>Procedimientos y respuesta ante emergencias químicas.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Asesoría técnica -->
+        <article class="serviceCard">
+          <div class="thumb">
+            <img src="av-servicio-asesoria-almacenamiento.jpg" alt="Asesoría técnica en control de riesgos y almacenamiento seguro" />
+          </div>
+          <div class="body">
+            <div class="tag"><span class="dot"></span> Implementación</div>
+            <h3>Asesoría técnica</h3>
+            <p>
+              Diagnóstico y estructuración de controles: matrices, procedimientos, planes de acción,
+              requisitos mínimos y estándares internos para gestionar el riesgo de forma consistente.
+            </p>
+            <ul>
+              <li>Matrices (peligros, compatibilidad, plan de acción).</li>
+              <li>Procedimientos e instructivos operativos.</li>
+              <li>Verificación de controles y evidencias.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Auditoría -->
+        <article class="serviceCard">
+          <div class="thumb">
+            <img src="av-servicio-auditoria-industrial2.jpg" alt="Auditoría especializada y verificación de controles en campo" />
+          </div>
+          <div class="body">
+            <div class="tag"><span class="dot"></span> Verificación</div>
+            <h3>Auditoría especializada</h3>
+            <p>
+              Evaluación técnica del cumplimiento y desempeño de controles. Hallazgos claros,
+              priorización por criticidad y ruta de cierre verificable.
+            </p>
+            <ul>
+              <li>Inspecciones con enfoque de control crítico.</li>
+              <li>Hallazgos con acciones concretas y seguimiento.</li>
+              <li>Informe técnico y trazabilidad documental.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="margin-top:16px" class="grid2">
+        <div class="card soft">
+          <h3>Riesgo químico como eje técnico</h3>
+          <p>
+            Integramos criterios de clasificación, compatibilidad, almacenamiento, señalización,
+            estándares de respuesta ante derrames y control de exposición, con documentación útil y aplicable.
+          </p>
+        </div>
+        <div class="card soft">
+          <h3>Soporte para múltiples sectores</h3>
+          <p>
+            Educación, salud, industria, alimentos, logística y transporte: adaptamos el nivel de intervención
+            al contexto operativo y al grado de madurez del sistema de gestión.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" aria-label="Contacto">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2>Contáctanos</h2>
+        <p>Cuéntanos tu necesidad. Te proponemos una ruta técnica (diagnóstico → implementación → verificación) según criticidad y alcance.</p>
+      </div>
+
+      <div class="contactGrid">
+        <div class="contactCard">
+          <h3>Solicitud de contacto</h3>
+          <p style="color: rgba(255,255,255,.78); margin:0 0 12px; line-height:1.55; font-size:14px">
+            Para iniciar, envía un correo con: sector, sede/ciudad, proceso/área, sustancias (si aplica),
+            y el objetivo (auditoría, asesoría o capacitación). Te respondemos con un plan de trabajo base.
+          </p>
+
+          <!-- Ajusta estos datos cuando quieras -->
+          <div class="contactRow">
+            <div class="icon" aria-hidden="true">✉️</div>
+            <div>
+              <strong>Correo</strong>
+              <span><a href="mailto:contacto@terramabing.com">contacto@terramabing.com</a> (puedes cambiarlo)</span>
+            </div>
+          </div>
+
+          <div class="contactRow">
+            <div class="icon" aria-hidden="true">📍</div>
+            <div>
+              <strong>Ubicación</strong>
+              <span>Bogotá D.C. — Cobertura nacional según alcance</span>
+            </div>
+          </div>
+
+          <div class="heroActions" style="margin-top:12px">
+            <a class="btn primary" href="mailto:contacto@terramabing.com?subject=Solicitud%20de%20contacto%20-%20TerraMab%20Ing&body=Hola%2C%20quisiera%20solicitar%20asesor%C3%ADa.%0A%0ASector%3A%20%0ACiudad%2FSede%3A%20%0AProceso%2F%C3%81rea%3A%20%0AAlcance%20(Auditor%C3%ADa%2FAsesor%C3%ADa%2FCapacitaci%C3%B3n)%3A%20%0AObservaciones%3A%20">Enviar correo</a>
+            <a class="btn" href="#inicio">Volver arriba</a>
+          </div>
+        </div>
+
+        <div class="imgFrame" aria-label="Imagen de soporte">
+          <img src="av-capacitacion-grupo.jpg" alt="Espacio de capacitación y transferencia de conocimiento" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+    <span>© <span id="year"></span> TerraMab Ing — Ingeniería de Riesgos</span>
+    <span style="color: rgba(255,255,255,.55)">Asesoría técnica • Auditoría especializada • Capacitación</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

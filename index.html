@@ -8,11 +8,9 @@
 
   <style>
     :root{
-      /* Base con tinte verde (más cercano al logo, no blanco) */
-      --bg: #f1f7f2;
-      --surface: rgba(255,255,255,.92);
-      --surface-2: rgba(255,255,255,.70);
-
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --surface-2: #f1f4f6;
       --text: #0f172a;
       --muted: #475569;
       --line: rgba(15, 23, 42, .10);
@@ -33,9 +31,8 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color: var(--text);
       background:
-        radial-gradient(900px 520px at 18% -10%, rgba(31,122,59,.14), transparent 60%),
-        radial-gradient(900px 520px at 88% 10%, rgba(42,166,90,.12), transparent 60%),
-        linear-gradient(180deg, rgba(31,122,59,.05), rgba(31,122,59,.02)),
+        radial-gradient(900px 520px at 18% -10%, rgba(31,122,59,.12), transparent 60%),
+        radial-gradient(900px 520px at 88% 10%, rgba(42,166,90,.10), transparent 60%),
         var(--bg);
     }
 
@@ -53,7 +50,7 @@
       top:0;
       z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(241,247,242,.78);
+      background: rgba(247,248,250,.78);
       border-bottom: 1px solid var(--line);
     }
 
@@ -72,9 +69,9 @@
       min-width: 220px;
     }
 
-    /* Logo grande y sin leyenda al lado */
+    /* ✅ Logo más grande y sin texto al lado */
     .brand img{
-      width: 210px;
+      width: 210px;         /* Ajusta si quieres aún más grande */
       height: auto;
       filter: drop-shadow(0 10px 20px rgba(2,6,23,.10));
     }
@@ -91,7 +88,7 @@
     }
 
     nav a{
-      font-weight:800;
+      font-weight:700;
       color: rgba(15,23,42,.78);
       padding: 10px 10px;
       border-radius: 12px;
@@ -118,7 +115,7 @@
       border: 1px solid var(--line);
       background: var(--surface);
       box-shadow: 0 10px 25px rgba(2,6,23,.06);
-      font-weight: 900;
+      font-weight: 800;
       transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
       white-space:nowrap;
     }
@@ -179,7 +176,7 @@
       background: rgba(255,255,255,.12);
       border: 1px solid rgba(255,255,255,.22);
       color: rgba(255,255,255,.92);
-      font-weight: 900;
+      font-weight: 800;
       width: fit-content;
       backdrop-filter: blur(8px);
     }
@@ -275,7 +272,7 @@
     .about-media{
       height: 360px;
       background:
-        linear-gradient(180deg, rgba(2,6,23,.06), rgba(2,6,23,.18)),
+        linear-gradient(180deg, rgba(2,6,23,.08), rgba(2,6,23,.22)),
         url("av-quienes-laboratorio.jpg") center/cover no-repeat;
     }
 
@@ -330,21 +327,6 @@
       line-height: 1.5;
     }
 
-    /* Bloque extra: evidencia/galería (para usar av-capacitacion-grupo.jpg) */
-    .evidence{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 18px;
-      align-items:stretch;
-    }
-    .evidence-media{
-      height: 260px;
-      background:
-        linear-gradient(180deg, rgba(2,6,23,.06), rgba(2,6,23,.18)),
-        url("av-capacitacion-grupo.jpg") center/cover no-repeat;
-    }
-
     /* Contact */
     .contact{
       display:grid;
@@ -393,7 +375,7 @@
       border-radius: 999px;
       background: linear-gradient(135deg, #25D366, #1fb855);
       color: white;
-      font-weight: 950;
+      font-weight: 900;
       box-shadow: 0 18px 40px rgba(2,6,23,.22);
       border: 1px solid rgba(255,255,255,.28);
       transition: transform .16s ease, box-shadow .16s ease;
@@ -432,7 +414,6 @@
       .grid-2{ grid-template-columns: 1fr; }
       .services{ grid-template-columns: 1fr; }
       .contact{ grid-template-columns: 1fr; }
-      .evidence{ grid-template-columns: 1fr; }
       .brand img{ width: 180px; }
     }
 
@@ -466,7 +447,7 @@
 
         <div class="nav-cta">
           <a class="btn ghost" href="#contacto">Solicitar contacto</a>
-          <a class="btn primary" href="https://wa.me/573153937116" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn primary" href="https://wa.me/57315337116" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -629,26 +610,6 @@
         </article>
 
       </div>
-
-      <!-- ✅ Bloque adicional para usar av-capacitacion-grupo.jpg -->
-      <div class="evidence">
-        <div class="card">
-          <div class="evidence-media" role="img" aria-label="Capacitación grupal"></div>
-        </div>
-        <div class="card">
-          <div class="card-pad">
-            <h3 style="margin:0; font-size:18px;">Capacitación en contexto operativo</h3>
-            <p style="margin:10px 0 0; color:var(--muted); line-height:1.6;">
-              Las sesiones se diseñan según el riesgo real del proceso, con énfasis en controles,
-              condiciones seguras de trabajo, verificación de prácticas y cierre de brechas.
-            </p>
-            <div style="margin-top:14px; padding:12px; border-radius:16px; background:var(--surface-2); border:1px solid var(--line); color:var(--muted); line-height:1.45;">
-              <b style="color:var(--text);">Incluye:</b> material de apoyo, lista de asistencia y lineamientos para implementación.
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -669,12 +630,12 @@
           <div class="card-pad">
             <h3 style="margin:0; font-size:18px;">Canales de contacto</h3>
             <p class="small">
-              WhatsApp: <b>+57 315 393 7116</b><br/>
+              WhatsApp: <b>+57 315 337 116</b><br/>
               (También puedes usar el botón flotante abajo a la derecha.)
             </p>
 
             <div class="contact-actions">
-              <a class="btn primary" href="https://wa.me/573153937116" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+              <a class="btn primary" href="https://wa.me/57315337116" target="_blank" rel="noopener">Escribir por WhatsApp</a>
               <a class="btn" href="#inicio">Volver al inicio</a>
             </div>
           </div>
@@ -707,7 +668,7 @@
   </footer>
 
   <!-- WhatsApp floating button -->
-  <a class="wa-float" href="https://wa.me/573153937116" target="_blank" rel="noopener" aria-label="WhatsApp TerraMab Ing">
+  <a class="wa-float" href="https://wa.me/57315337116" target="_blank" rel="noopener" aria-label="WhatsApp TerraMab Ing">
     <span class="wa-ico" aria-hidden="true"></span>
     WhatsApp
   </a>

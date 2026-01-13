@@ -68,10 +68,10 @@
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
-    }
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 0;            /* un poquito más alto */
+  gap:16px;
+}
     .brand{
   display:flex;
   align-items:center;
@@ -91,9 +91,14 @@ flex: 1;
 .brand-name{
   display:flex;
   flex-direction: column;
-  gap: 2px;
-  line-height: 1;
+  gap: 3px;
+  line-height: 1.1;          /* más aire entre renglones */
   white-space: nowrap;
+}
+
+.brand-name .bn-top,
+.brand-name .bn-sub{
+  display:block;             /* fuerza salto de línea real */
 }
 
 .brand-name .bn-top{

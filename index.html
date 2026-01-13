@@ -62,64 +62,30 @@
 
     /* Header */
     header{
-  position:sticky; top:0; z-index:50;
-  backdrop-filter: blur(10px);
-  background: rgba(10, 18, 14, .62);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  height: 92px;               /* <- altura del header */
-}
-
-.nav{
-  height: 92px;               /* <- igual que header */
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 0;                 /* <- quita padding para que el logo llene vertical */
-  gap:16px;
-}
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(10, 18, 14, .62);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
     .brand{
   display:flex;
-  align-items:center;     /* centra verticalmente logo + texto */
-  gap:14px;
-  height:100%;
-  padding: 0 6px;         /* leve aire sin “recuadro grande” */
-}
-
-/* Contenedor circular del logo */
-.brand-mark{
-  width: 72px;            /* tamaño del círculo (sube a 80/88 si quieres más) */
-  height: 72px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.10);   /* “placa” SOLO en el círculo */
-  border: 1px solid rgba(255,255,255,.16);
-  display:flex;
   align-items:center;
-  justify-content:center;
-  overflow:hidden;        /* recorta lo que sobresalga */
+  gap:16px;
+  min-width:260px;   /* más espacio reservado al logo */
 }
-
-.brand-mark img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;    /* CLAVE: no deforma, mantiene proporción */
-  display:block;
-}
-
-/* Texto al lado */
-.brand-text{ line-height:1.05; }
-.brand-name{
-  display:block;
-  font-weight: 900;
-  letter-spacing: .8px;
-  font-size: 18px;
-  color: rgba(255,255,255,.92); /* alto contraste sobre fondo oscuro */
-}
-.brand-sub{
-  display:block;
-  margin-top: 3px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: rgba(56,217,110,.95);  /* tu verde */
+    .brand img{
+  width:110px;              /* más ancho */
+  height:auto;              /* mantiene proporción real */
+  max-height:90px;          /* evita que rompa el header */
+  object-fit:contain;
+  background: transparent;  /* elimina “cajita” */
+  border:none;              /* sin borde */
+  padding:0;                /* sin relleno */
 }
     .brand .title{
       line-height:1.05;
@@ -437,28 +403,8 @@
       line-height:1.6;
     }
 
-   /* Responsive */
-@media (max-width: 940px){
-  header{ height: 76px; }
-  .nav{ height: 76px; }
-
-  .hero-grid{grid-template-columns: 1fr}
-  .about{grid-template-columns: 1fr}
-  .three{grid-template-columns: 1fr}
-  .two{grid-template-columns: 1fr}
-
-  nav ul{display:none}
-  .menu-btn{display:inline-flex}
-  .mobile{display:none}
-  .mobile.open{display:block}
-  .brand{min-width:auto}
-
-  /* Ajustes del logo + texto en móvil */
-  .brand-mark{ width: 56px; height: 56px; }
-  .brand-name{ font-size: 16px; }
-  .brand-sub{ font-size: 11px; letter-spacing: 1.6px; }
-}
-      
+    /* Responsive */
+    @media (max-width: 940px){
       .hero-grid{grid-template-columns: 1fr}
       .about{grid-template-columns: 1fr}
       .three{grid-template-columns: 1fr}
@@ -467,7 +413,7 @@
       .menu-btn{display:inline-flex}
       .mobile{display:none}
       .mobile.open{display:block}
-      .brand{min-width:auto} 
+      .brand{min-width:auto}
     }
  /* Botón flotante WhatsApp */
 .whatsapp-float{
@@ -513,14 +459,8 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
-  <span class="brand-mark" aria-hidden="true">
-    <img src="logo-terramab3.jpg" alt="Logo TerraMab">
-  </span>
-
-  <span class="brand-text">
-    <span class="brand-name">TERRAMAB</span>
-    <span class="brand-sub">INGENIERÍA S.A.S.</span>
-  </span>
+  <img src="logo-terramab.png" alt="Logo TerraMab Ing">
+  <img src="logo-terramab.jpg" alt="Logo TerraMab Ing">
 </a>
 
         <nav aria-label="Navegación principal">

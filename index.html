@@ -89,13 +89,27 @@ flex: 1;
   box-shadow: 0 10px 26px rgba(0,0,0,.35);
 }
 .brand-name{
+  display:flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-name .bn-top{
   font-size: 22px;
   font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: rgba(255,255,255,.95);
-  white-space: nowrap;
-  line-height: 1;
+}
+
+.brand-name .bn-sub{
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.78);
 }
     .brand .title{
       line-height:1.05;

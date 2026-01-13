@@ -79,16 +79,19 @@
 }
     .brand{
   display:flex;
-  align-items:stretch;   /* <- importante */
-  gap:16px;
-  height: 100%;          /* <- ocupa todo el header */
-  min-width:260px;
+  align-items:stretch;
+  height: 100%;
+  padding: 10px 12px;                 /* aire alrededor */
+  border-radius: 14px;               /* suaviza la esquina */
+  background: rgba(255,255,255,.06); /* placa sutil */
+  border: 1px solid rgba(255,255,255,.10);
+  overflow: hidden;
 }
 
 .brand img{
-  height: 100%;          /* <- llena de arriba a abajo */
-  width: auto;           /* <- mantiene proporción */
-  object-fit: contain;   /* <- no deforma */
+  height: 100%;
+  width: auto;
+  object-fit: contain;
   display:block;
 }
     .brand .title{

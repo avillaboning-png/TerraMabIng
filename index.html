@@ -78,14 +78,14 @@
   gap:16px;
   min-width:260px;   /* más espacio reservado al logo */
 }
-    .brand img{
-  width:110px;              /* más ancho */
-  height:auto;              /* mantiene proporción real */
-  max-height:90px;          /* evita que rompa el header */
-  object-fit:contain;
-  background: transparent;  /* elimina “cajita” */
-  border:none;              /* sin borde */
-  padding:0;                /* sin relleno */
+    .brand-logo{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  object-fit:cover;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
 }
     .brand .title{
       line-height:1.05;
@@ -459,8 +459,7 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
-  <img src="logo-terramab.png" alt="Logo TerraMab Ing">
-  <img src="logo-terramab.jpg" alt="Logo TerraMab Ing">
+  <img class="brand-logo" src="logo-terramab3.jpg" alt="Logo TerraMab Ing">
 </a>
 
         <nav aria-label="Navegación principal">

@@ -88,33 +88,38 @@ flex: 1;
   border: 1px solid rgba(255,255,255,.14);
   box-shadow: 0 10px 26px rgba(0,0,0,.35);
 }
-.brand-name{
+.brand{
   display:flex;
-  flex-direction: column;
-  gap: 3px;
-  line-height: 1.1;          /* más aire entre renglones */
-  white-space: nowrap;
+  align-items:flex-start;   /* clave para que el 2do renglón no se “aplane” */
+  gap:16px;
+  min-width:260px;
+  flex:1;
 }
 
-.brand-name .bn-top,
-.brand-name .bn-sub{
-  display:block;             /* fuerza salto de línea real */
+.brand-name{
+  display:block;            /* bloque real */
+  white-space:normal;       /* permite 2 líneas */
+  line-height:1.05;
+  padding-top:4px;
 }
 
-.brand-name .bn-top{
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.95);
+.bn-top{
+  display:block;
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.95);
 }
 
-.brand-name .bn-sub{
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.78);
+.bn-sub{
+  display:block;
+  margin-top:4px;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.78);
 }
     .brand .title{
       line-height:1.05;
@@ -490,10 +495,10 @@ flex: 1;
       <div class="nav">
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
   <img class="brand-logo" src="logo-terramab3.jpg" alt="Logo TerraMab Ing">
-  <span class="brand-name">
-  <span class="bn-top">TERRAMAB</span>
-  <span class="bn-sub">INGENIERÍA S.A.S.</span>
-</span>
+  <div class="brand-name">
+  <div class="bn-top">TERRAMAB</div>
+  <div class="bn-sub">INGENIERÍA S.A.S.</div>
+</div>
 </a>
 
         <nav aria-label="Navegación principal">

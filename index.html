@@ -437,8 +437,23 @@
       line-height:1.6;
     }
 
-    /* Responsive */
-    @media (max-width: 940px){
+   /* Responsive */
+@media (max-width: 940px){
+  header{ height: 76px; }
+  .nav{ height: 76px; }
+
+  .hero-grid{grid-template-columns: 1fr}
+  .about{grid-template-columns: 1fr}
+  .three{grid-template-columns: 1fr}
+  .two{grid-template-columns: 1fr}
+
+  nav ul{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile{display:none}
+  .mobile.open{display:block}
+  .brand{min-width:auto}
+
+  /* Ajustes del logo + texto en móvil */
   .brand-mark{ width: 56px; height: 56px; }
   .brand-name{ font-size: 16px; }
   .brand-sub{ font-size: 11px; letter-spacing: 1.6px; }

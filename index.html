@@ -62,30 +62,34 @@
 
     /* Header */
     header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(10, 18, 14, .62);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
-    }
-    .brand{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 18, 14, .62);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  height: 92px;               /* <- altura del header */
+}
+
+.nav{
+  height: 92px;               /* <- igual que header */
   display:flex;
   align-items:center;
+  justify-content:space-between;
+  padding: 0;                 /* <- quita padding para que el logo llene vertical */
   gap:16px;
-  min-width:260px;   /* más espacio reservado al logo */
 }
-    .brand img{
-  width:110px;              /* más ancho */
-  height:auto;              /* mantiene proporción real */
-  max-height:90px;          /* evita que rompa el header */
-  object-fit:contain;
-  background: transparent;  /* elimina “cajita” */
-  border:none;              /* sin borde */
-  padding:0;                /* sin relleno */
+    .brand{
+  display:flex;
+  align-items:stretch;   /* <- importante */
+  gap:16px;
+  height: 100%;          /* <- ocupa todo el header */
+  min-width:260px;
+}
+
+.brand img{
+  height: 100%;          /* <- llena de arriba a abajo */
+  width: auto;           /* <- mantiene proporción */
+  object-fit: contain;   /* <- no deforma */
+  display:block;
 }
     .brand .title{
       line-height:1.05;
@@ -405,6 +409,9 @@
 
     /* Responsive */
     @media (max-width: 940px){
+      header{ height: 76px; }
+  .nav{ height: 76px; }
+      
       .hero-grid{grid-template-columns: 1fr}
       .about{grid-template-columns: 1fr}
       .three{grid-template-columns: 1fr}
@@ -413,7 +420,7 @@
       .menu-btn{display:inline-flex}
       .mobile{display:none}
       .mobile.open{display:block}
-      .brand{min-width:auto}
+      .brand{min-width:auto} 
     }
  /* Botón flotante WhatsApp */
 .whatsapp-float{

@@ -79,20 +79,47 @@
 }
     .brand{
   display:flex;
-  align-items:stretch;
-  height: 100%;
-  padding: 10px 12px;                 /* aire alrededor */
-  border-radius: 14px;               /* suaviza la esquina */
-  background: rgba(255,255,255,.06); /* placa sutil */
-  border: 1px solid rgba(255,255,255,.10);
-  overflow: hidden;
+  align-items:center;     /* centra verticalmente logo + texto */
+  gap:14px;
+  height:100%;
+  padding: 0 6px;         /* leve aire sin “recuadro grande” */
 }
 
-.brand img{
+/* Contenedor circular del logo */
+.brand-mark{
+  width: 72px;            /* tamaño del círculo (sube a 80/88 si quieres más) */
+  height: 72px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.10);   /* “placa” SOLO en el círculo */
+  border: 1px solid rgba(255,255,255,.16);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;        /* recorta lo que sobresalga */
+}
+
+.brand-mark img{
+  width: 100%;
   height: 100%;
-  width: auto;
-  object-fit: contain;
+  object-fit: contain;    /* CLAVE: no deforma, mantiene proporción */
   display:block;
+}
+
+/* Texto al lado */
+.brand-text{ line-height:1.05; }
+.brand-name{
+  display:block;
+  font-weight: 900;
+  letter-spacing: .8px;
+  font-size: 18px;
+  color: rgba(255,255,255,.92); /* alto contraste sobre fondo oscuro */
+}
+.brand-sub{
+  display:block;
+  margin-top: 3px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(56,217,110,.95);  /* tu verde */
 }
     .brand .title{
       line-height:1.05;
@@ -412,8 +439,10 @@
 
     /* Responsive */
     @media (max-width: 940px){
-      header{ height: 76px; }
-  .nav{ height: 76px; }
+  .brand-mark{ width: 56px; height: 56px; }
+  .brand-name{ font-size: 16px; }
+  .brand-sub{ font-size: 11px; letter-spacing: 1.6px; }
+}
       
       .hero-grid{grid-template-columns: 1fr}
       .about{grid-template-columns: 1fr}
@@ -469,7 +498,14 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
-  <img src="logo-terramab2.jpg" alt="Logo TerraMab Ing">
+  <span class="brand-mark" aria-hidden="true">
+    <img src="logo-terramab3.jpg" alt="Logo TerraMab">
+  </span>
+
+  <span class="brand-text">
+    <span class="brand-name">TERRAMAB</span>
+    <span class="brand-sub">INGENIERÍA S.A.S.</span>
+  </span>
 </a>
 
         <nav aria-label="Navegación principal">

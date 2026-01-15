@@ -439,17 +439,29 @@ flex: 1;
 
     /* Responsive */
     @media (max-width: 940px){
-      .hero-grid{grid-template-columns: 1fr}
-      .about{grid-template-columns: 1fr}
-      .three{grid-template-columns: 1fr}
-      .two{grid-template-columns: 1fr}
-      nav ul{display:none}
-      .menu-btn{display:inline-flex}
-      .mobile{display:none}
-      .mobile.open{display:block}
-      .brand{min-width:auto}
-      .brand-name{display:none}
-    }
+  .hero-grid{grid-template-columns: 1fr}
+  .about{grid-template-columns: 1fr}
+  .three{grid-template-columns: 1fr}
+  .two{grid-template-columns: 1fr}
+  nav ul{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile{display:none}
+  .mobile.open{display:block}
+  .brand{min-width:auto}
+
+  /* ✅ Mostrar nombre en móvil sin montarse */
+  .nav{flex-wrap:wrap}
+  .brand{flex:1 1 100%}          /* el logo + nombre ocupan una fila completa */
+  .nav-cta{width:100%; justify-content:flex-end}
+
+  .brand-name{
+    display:flex;                 /* vuelve a aparecer */
+    white-space:normal;           /* permite salto */
+    line-height:1.05;
+  }
+  .brand-name .bn-top{font-size:18px; letter-spacing:1.2px}
+  .brand-name .bn-sub{font-size:12px; letter-spacing:2px}
+}
  /* Botón flotante WhatsApp */
 .whatsapp-float{
   position: fixed;

@@ -794,21 +794,25 @@ flex: 1;
           <div class="pad">
             <h3>Solicitud de contacto</h3>
 
-            <form onsubmit="event.preventDefault();">
-              <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Nombre</label>
-              <input required type="text" placeholder="Tu nombre"
-                style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:12px;">
+            <form action="https://formspree.io/f/xvzzgywj" method="POST">
 
-              <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Correo</label>
-              <input required type="email" placeholder="tucorreo@empresa.com"
-                style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:12px;">
+  <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Nombre</label>
+  <input required type="text" name="nombre" placeholder="Tu nombre"
+    style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:12px;">
 
-              <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Mensaje</label>
-              <textarea required rows="5" placeholder="Cuéntame brevemente qué necesitas (ej. almacenamiento, SGA, matrices, auditoría, capacitación, etc.)"
-                style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:14px; resize:vertical;"></textarea>
+  <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Correo</label>
+  <input required type="email" name="email" placeholder="tucorreo@empresa.com"
+    style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:12px;">
 
-              <button class="btn primary" type="submit">Enviar solicitud</button>
-            </form>
+  <label style="display:block; color:var(--muted); font-size:13px; margin-bottom:6px">Mensaje</label>
+  <textarea required rows="5" name="message"
+    placeholder="Cuéntame brevemente qué necesitas (ej. almacenamiento, SGA, matrices, auditoría, capacitación, etc.)"
+    style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22); color: var(--text); outline:none; margin-bottom:14px; resize:vertical;"></textarea>
+
+  <input type="hidden" name="_subject" value="Nueva solicitud desde la web | TerraMab Ing">
+
+  <button class="btn primary" type="submit">Enviar solicitud</button>
+</form>
           </div>
         </div>
 
